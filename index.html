@@ -25,6 +25,80 @@
     />
   </head>
   <body class="d-flex flex-column min-vh-100">
+    <!-- Modal de registro de novo serviço -->
+    <div
+      class="modal fade"
+      id="novoServico"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="novoServicolLabel">
+              Adicionar serviço
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form method="post" action="" class="d-flex flex-column">
+              <label for="nomeServico"><strong>Nome</strong></label>
+              <input
+                type="text"
+                id="nomeServico"
+                name="nomeServico"
+                maxlength="50"
+                placeholder='Ex: "Spotify Premium"'
+                required
+              />
+              <label for="descServico" class="mt-2"
+                ><strong>Descrição do serviço</strong></label
+              >
+              <textarea
+                type="text"
+                id="descServico"
+                name="descServico"
+                maxlength="300"
+                placeholder='Ex: "Valor mensal gasto na conta premium do Spotify"'
+                class="custom-textarea"
+                required
+              ></textarea>
+              <label for="valorServico" class="mt-2"
+                ><strong>Valor gasto ao mês</strong></label
+              >
+              <input
+                type="text"
+                id="valorServico"
+                name="valorServico"
+                placeholder="Ex: R$20,00"
+                required
+              />
+              <label for="dataServico" class="mt-2"
+                ><strong>Data do serviço</strong></label
+              >
+              <input type="date" name="dataServico" id="dataServico" />
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-danger"
+              data-bs-dismiss="modal"
+            >
+              Cancelar
+            </button>
+            <button type="submit" class="btn btn-success">Adicionar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Início da página -->
     <nav class="navbar navbar-expand-lg header-bg-grey">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Fintech</a>
@@ -84,7 +158,12 @@
           </a>
         </div>
         <div class="col col-5 col-md-2 border border-1 p-2">
-          <a href="#" class="text-decoration-none">
+          <a
+            href="#"
+            class="text-decoration-none"
+            data-bs-toggle="modal"
+            data-bs-target="#novoServico"
+          >
             <img
               src="./assets/images/icons/add-task.png"
               alt="Uma pilha de arquivos vista de cima"
